@@ -90,7 +90,7 @@ function viewAllRoles() {
 
 function viewAllEmployees() {
   db.query(
-    `SELECT CONCAT(employees.first_name, ' ', employees.last_name) AS Name, roles.title AS Title, departments.name AS Department_Name, CONCAT(manager.first_name, ' ', manager.last_name) AS Manager FROM employees 
+    `SELECT CONCAT(employees.first_name, ' ', employees.last_name) AS Name, roles.title AS Title, roles.salary AS Salary, departments.name AS Department_Name, CONCAT(manager.first_name, ' ', manager.last_name) AS Manager FROM employees 
     LEFT JOIN roles ON employees.role_id = roles.id
     LEFT JOIN departments ON roles.department_id = departments.id
     LEFT JOIN employees AS manager ON employees.manager_id = manager.id;`,
@@ -168,15 +168,14 @@ function addRole() {
             [
               response.title,
               response.salary,
-              currentDepartments[departmentIndex],
+              departmentIndex,
             ],
             (err2, result2) => {
               if (err2) {
                 console.log(`There was an error adding the role data.`);
               } else {
                 console.log(
-                  `The ` +
-                    response.title ` role was added to the list of available roles.`
+                  `The entered role was added to the list of available roles.`
                 );
                 init();
               }
@@ -296,11 +295,7 @@ function updateRole() {
                             if (err3) {
                               console.log(`There was an error adding the employee data.`);
                             } else {
-                              console.log(
-                                response.firstName +
-                                  ` ` +
-                                  response.lastName +
-                                  `'s employee information has been added.`
+                              console.log(`This employees information has been added to the database.`
                               );
                               init();
                             }

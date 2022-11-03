@@ -5,7 +5,7 @@
 This [repository](mattdack.github.io/employee-tracker) contains an application that allows the user to utilize command line prompts to track an organization of employees. Users can add departments, roles, and employees to a database as well as view all of the created departments, roles, and employees. The application uses the inquirer node package in order to make command line prompts and take in user information. The mysql2 package is utilized to create and access a database. The console.table package is used to neatly present users with data in the terminal. This application was created to employ newly learned topics regarding asynchronous functions, databases, and command line prompts.
 
 ## Video of Application Usage
-<a href = ''> Link to Video</a>
+<a href = 'https://drive.google.com/file/d/1mLO11gXWk8eCx0FRpjpJK3FKh2raeP4e/view'> Link to Video</a>
 
 ## Installation
 
